@@ -27,8 +27,7 @@ class QuotesController extends Controller
     public function create()
     {
         $categories = Category::all();
-        $subcategories = Subcategory::all();
-        return view('quotes.create', ['categories' => $categories , 'subcategories' => $subcategories]);
+        return view('quotes.create', ['categories' => $categories]);
     }
 
     /**

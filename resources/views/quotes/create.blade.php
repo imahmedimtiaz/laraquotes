@@ -35,10 +35,6 @@
                             <div class="form-group">
                                 <label>Subcategory</label> 
                                 <select name="subcategory_id" id="subcategory_id" class="form-control">
-                                 
-                                    @foreach ($subcategories as $subcategory)
-                                    <option value="{{$subcategory->id}}"> {{$subcategory->name}} </option>
-                                    @endforeach
                                     
                                 </select>
                              </div>
@@ -57,6 +53,25 @@
             </form>
         </div>
     </div>
-  
-
 @endsection
+@push('footer_scripts')
+<script>
+    function get_subcategories_by_category(){
+        var category_id = $('#category_id').val();
+        $.post('{{ route('subcategories.get_subcategories_by_category') }}',{_token:'{{ csrf_token() }}', category_id:category_id}, function(data){
+            $('#subcategory_id').html(null);
+            for (var i = 0; i < data.length; i++) {
+                $('#subcategory_id').append($('<option>', {
+                    value: data[i].id,
+                    text: data[i].name
+                }));
+              
+            }
+        });
+    }
+      $('#category_id').on('change', function() {
+        get_subcategories_by_category();
+    });
+
+</script>
+@endpush

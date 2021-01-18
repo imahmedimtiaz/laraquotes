@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('content')
-This is index page of quotes
+Listing of quotes!
 @endsection
