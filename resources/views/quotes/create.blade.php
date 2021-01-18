@@ -67,8 +67,11 @@
                 }));
               
             }
-        });
+        });  
     }
+    $(document).ready(function(){
+        get_subcategories_by_category();
+    });
       $('#category_id').on('change', function() {
         get_subcategories_by_category();
     });
