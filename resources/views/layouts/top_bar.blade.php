@@ -65,7 +65,7 @@
                     </li>
                 </ul>
             </li> -->
-            <li class="dropdown">
+            {{-- <li class="dropdown">
                 <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                     <i class="fa fa-bell"></i>  <span class="label label-primary" id="notifications-count">8</span>
                 </a>
@@ -89,7 +89,7 @@
                         </div>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
 
 
             <li>

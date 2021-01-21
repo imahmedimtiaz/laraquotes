@@ -9,15 +9,19 @@
                             <span class="block m-t-xs font-bold">
                                 {{Auth::user()->name}}  
                             </span>
+                            @if(Auth::user()->type == 'admin')
+                            <span class="text-muted text-xs block">{{Auth::user()->type}} <b class="caret"></b></span>
+                            @else
                             <span class="text-muted text-xs block">{{Auth::user()->email}} <b class="caret"></b></span>
+                            @endif
                         </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        {{-- <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li><a class="dropdown-item" href="">Profile</a></li>
-                            <!-- <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
+                            <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
                             <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
                             <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="login.html">Logout</a></li> -->
-                        </ul>
+                            <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                        </ul> --}}
                     </div>
                     <div class="logo-element">
                         TBK
@@ -30,7 +34,7 @@
                         <span class="nav-label">Dashboard</span>
                     </a>
                 </li>
-                <li class="">
+                <li class="{{ request()->route()->named('quotes') ? 'active' : '' }}">
                     <a href="{{route('quotes.index')}}">
                         <i class="fa fa-list"></i> 
                         <span class="nav-label">Quotes</span>
