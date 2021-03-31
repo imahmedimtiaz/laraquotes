@@ -26,5 +26,6 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () { 
 Route::resource('quotes','QuotesController');
+Route::post('import-quotes','QuotesController@import')->name('quotes.import');
 Route::post('/subcategories/get_subcategories_by_category', 'SubCategoryController@get_subcategories_by_category')->name('subcategories.get_subcategories_by_category');
 });

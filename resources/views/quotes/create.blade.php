@@ -7,6 +7,11 @@
             <h5> Quote<small> Create</small></h5>
         </div>
         <div class="ibox-content">
+            <form action="{{route('quotes.import')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                        <input type="file" name="quotes-excel" id="quotes-excel">
+                        <button class="btn btn-primary btn-sm" type="submit">import</button>
+            </form>
         <form id="form" method="POST" action="{{route('quotes.store')}}"
         enctype="multipart/form-data">
                 @csrf

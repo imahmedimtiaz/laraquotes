@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Quote;
 use App\Category;
 use App\Subcategory;
+use App\Imports\QuotesImport;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
 class QuotesController extends Controller
 {
     /**
@@ -19,6 +21,10 @@ class QuotesController extends Controller
         return view('quotes.index');
     }
 
+    public function import(Request $request){
+        Excel::import(new QuotesImport, request()->file('quotes-excel'));
+        return view('quotes.index');
+    }
     /**
      * Show the form for creating a new resource.
      *
