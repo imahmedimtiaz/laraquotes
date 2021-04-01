@@ -9,9 +9,17 @@ use App\Quote;
 use App\Subcategory;
 class QuotesController extends Controller
 {
-    public function all()
+    public function all(Request $request)
     {
-        $quotes =  Quote::with('Quotecategory','Quotesubcategory')->get();
+        $number = $request->number;
+         if($number != null && $number != ""){
+            $count =  Quote::count();
+            $take = $count - $number;
+            $quotes = Quote::with('Quotecategory','Quotesubcategory')->skip($number)->take($take)->get();
+         }else{
+            $quotes =  Quote::with('Quotecategory','Quotesubcategory')->get();
+         }
+        
         return response()->json([
             'data' => $quotes,
             'status' => 200,
