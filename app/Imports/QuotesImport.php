@@ -32,7 +32,7 @@ class QuotesImport implements ToModel, WithHeadingRow
                 $quote->quotation = $row['quotation'];
                 $quote->category_id = $category->id;
                 $quote->subcategory_id = $subcategory->id;
-                $quote->is_favorite = $row['isfavorite'] . 0;
+                $quote->is_favorite = isset($row['isfavorite']) ? $row['isfavorite'] : 0;
                 $quote->save();
                    
                 }else{
@@ -45,12 +45,12 @@ class QuotesImport implements ToModel, WithHeadingRow
                 $quote->quotation = $row['quotation'];
                 $quote->category_id = $category->id;
                 $quote->subcategory_id = $subcategory->id;
-                $quote->is_favorite = $row['isfavorite'] . 0;
+                $quote->is_favorite = isset($row['isfavorite']) ? $row['isfavorite'] : 0;
                 $quote->save();
     
                 }
             }
-            $quote->is_favorite = $row['isfavorite'] . 0;
+            $quote->is_favorite = isset($row['isfavorite']) ? $row['isfavorite'] : 0;
             $quote->save();
 
           
@@ -68,7 +68,7 @@ class QuotesImport implements ToModel, WithHeadingRow
             $quote->quotation = $row['quotation'];
             $quote->category_id = $category->id;
             $quote->$subcategory_id = $subcategory->id;
-            $quote->is_favorite = $row['isfavorite'] . 0;
+            $quote->is_favorite = isset($row['isfavorite']) ? $row['isfavorite'] : 0;
             $quote->save();
                
             }else{
@@ -81,7 +81,7 @@ class QuotesImport implements ToModel, WithHeadingRow
             $quote->quotation = $row['quotation'];
             $quote->category_id = $category->id;
             $quote->subcategory_id = $subcategory->id;
-            $quote->is_favorite = $row['isfavorite'] . 0;
+            $quote->is_favorite = isset($row['isfavorite']) ? $row['isfavorite'] : 0;
             $quote->save();
 
             }
