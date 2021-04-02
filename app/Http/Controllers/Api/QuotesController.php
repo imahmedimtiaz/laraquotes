@@ -23,7 +23,7 @@ class QuotesController extends Controller
                   ]);   
             }else{
                 $take = $count - $number;
-                $quotes = Quote::with('Quotecategory','Quotesubcategory')->skip($number)->take($take)->get();
+                $quotes = Quote::with('Quotecategory','Quotesubcategory')->skip($number)->take($take)->toSql();
             }
          
          }else{
