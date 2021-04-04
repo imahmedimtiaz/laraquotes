@@ -20,7 +20,7 @@ class QuotesController extends Controller
             if($count < $number){
                 return response()->json([
                     'status' => 442,
-                    'message' => 'Invalid number'
+                    'message' => 'Records to skip number is greater than total count of DB records.'
                   ]);   
             }else{
                 $take = $count - $number;
