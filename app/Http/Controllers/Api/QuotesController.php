@@ -32,12 +32,13 @@ class QuotesController extends Controller
          }
         
         return response()->json([
-            'data' => $quotes,
-            'status' => 200,
-            'message' => 'All quotes fetched',
-            'total_records' => $count,
+        	'status' => 200,
+            'message' => 'Success',
+        	'total_records' => $count,
             'records_to_skip' => $number,
-            'after_skip' => $take
+            'after_skip' => $take,
+            'data' => $quotes,
+            
           ]);
     }
 
