@@ -9,7 +9,7 @@
         <div class="ibox-content">
             <form action="{{route('quotes.import')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                        <input type="file" name="quotes-excel" id="quotes-excel">
+                        <input type="file" name="quotes_excel" id="quotes_excel">
                         <button class="btn btn-primary btn-sm" type="submit">import</button>
             </form>
         <form id="form" method="POST" action="{{route('quotes.store')}}"

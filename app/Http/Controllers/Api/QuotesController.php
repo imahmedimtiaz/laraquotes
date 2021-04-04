@@ -13,10 +13,11 @@ class QuotesController extends Controller
     {
         $number = $request->number;
         $count =  Quote::count();
+        $take = 0;
 
          if($number != null && $number != 0){
            
-            if($count <= $number){
+            if($count < $number){
                 return response()->json([
                     'status' => 442,
                     'message' => 'Invalid number'
@@ -33,7 +34,10 @@ class QuotesController extends Controller
         return response()->json([
             'data' => $quotes,
             'status' => 200,
-            'message' => 'All quotes fetched'
+            'message' => 'All quotes fetched',
+            'total_records' => $count,
+            'records_to_skip' => $number,
+            'after_skip' => $take
           ]);
     }
 

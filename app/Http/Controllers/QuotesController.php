@@ -22,7 +22,7 @@ class QuotesController extends Controller
     }
 
     public function import(Request $request){
-        Excel::import(new QuotesImport, request()->file('quotes-excel'));
+        Excel::import(new QuotesImport, request()->file('quotes_excel'));
         return view('quotes.index');
     }
     /**
